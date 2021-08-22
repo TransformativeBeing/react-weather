@@ -129,7 +129,7 @@ export default function Weather({ unit }) {
           <div className="col-7 codedBy">
             <a
               className="openSourceLink"
-              href="https://github.com/TransformativeBeing/Weather-App"
+              href="https://github.com/TransformativeBeing/react-weather"
             >
               Open-Source Code
             </a>
@@ -231,7 +231,7 @@ export default function Weather({ unit }) {
           <div className="col-7 codedBy">
             <a
               className="openSourceLink"
-              href="https://github.com/TransformativeBeing/Weather-App"
+              href="https://github.com/TransformativeBeing/react-weather"
             >
               Open-Source Code
             </a>
@@ -332,7 +332,7 @@ export default function Weather({ unit }) {
           <div className="col-7 codedBy">
             <a
               className="openSourceLink"
-              href="https://github.com/TransformativeBeing/Weather-App"
+              href="https://github.com/TransformativeBeing/react-weather"
             >
               Open-Source Code
             </a>
