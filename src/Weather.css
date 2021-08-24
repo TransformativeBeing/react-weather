@@ -53,13 +53,24 @@
   padding: 0 0 0 28px;
 }
 
-.Weather .fahrenheit {
-  color: #2c91e4;
-  font-size: 14px;
-  font-weight: 700;
+.Weather .tempUnits {
   position: relative;
   right: 3px;
   bottom: 25px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.Weather .activeTemp {
+  color: #2c91e4;
+}
+.Weather .unactiveTemp {
+  color: #4353a1;
+  text-decoration: none;
+}
+
+.Weather .unactiveTemp:hover {
+  color: #2c91e4;
+  text-decoration: underline;
 }
 
 .Weather .group3 {

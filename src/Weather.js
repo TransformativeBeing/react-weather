@@ -62,12 +62,18 @@ export default function Weather({ unit }) {
             </div>
           </div>
           <div className="col-6 group2">
-            <span className="temperature"> {weather.temp} </span>
-            <span className="fahrenheit">˚F</span>
+            <span className="temperature">{weather.temp}</span>
+            <span className="tempUnits">
+              <span className="activeTemp">˚F</span>
+              <span> |</span>
+              <a href="/" alt="Celsius" className="unactiveTemp">
+                ˚C
+              </a>
+            </span>
           </div>
           <div className="col-3 group3">
             <div className="humidity">
-              <span> {weather.humidity} </span>
+              <span>{weather.humidity}</span>
               <span>%</span>
             </div>
             <div className="humidityLabel">Humidity</div>
@@ -102,6 +108,7 @@ export default function Weather({ unit }) {
                   onChange={handleCity}
                   className="form-control"
                   type="search"
+                  autoFocus="on"
                   placeholder="Enter location... "
                 />
               </span>
@@ -165,11 +172,17 @@ export default function Weather({ unit }) {
           </div>
           <div className="col-6 group2">
             <span className="temperature">{weather.temp}</span>
-            <span className="fahrenheit">˚C</span>
+            <span className="tempUnits">
+              <span className="activeTemp">˚C</span>
+              <span> |</span>
+              <a href="/" alt="F" className="unactiveTemp">
+                ˚F
+              </a>
+            </span>
           </div>
           <div className="col-3 group3">
             <div className="humidity">
-              <span> {weather.humidity} </span>
+              <span>{weather.humidity}</span>
               <span>%</span>
             </div>
             <div className="humidityLabel">Humidity</div>
@@ -204,6 +217,7 @@ export default function Weather({ unit }) {
                   onChange={handleCity}
                   className="form-control"
                   type="search"
+                  autoFocus="on"
                   placeholder="Enter location... "
                 />
               </span>
@@ -305,6 +319,7 @@ export default function Weather({ unit }) {
                   onChange={handleCity}
                   className="form-control"
                   type="search"
+                  autoFocus="on"
                   placeholder="Enter location... "
                 />
               </span>
