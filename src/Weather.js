@@ -5,8 +5,7 @@ import "./images/sunEmoji.png";
 
 export default function Weather({ unit }) {
   const [city, setCity] = useState(" ");
-  const [weather, setWeather] = useState({});
-  const [loaded, setLoaded] = useState(false);
+  const [weather, setWeather] = useState({ ready: false });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,7 +14,6 @@ export default function Weather({ unit }) {
     let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
 
     axios.get(apiLink).then(handleResponse);
-    setLoaded();
   }
 
   function handleCity(event) {
@@ -23,8 +21,9 @@ export default function Weather({ unit }) {
   }
 
   function handleResponse(response) {
-    setLoaded(true);
+    //console.log(response.data);
     setWeather({
+      ready: true,
       description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       temp: Math.round(response.data.main.temp),
@@ -34,11 +33,12 @@ export default function Weather({ unit }) {
       sunrise: "06:05",
       sunset: "21:05",
       city: response.data.name,
+      country: response.data.sys.country,
       date: "Tuesday 18:00",
     });
   }
 
-  if (loaded && unit === "imperial") {
+  if (weather.ready && unit === "imperial") {
     return (
       <div className="Weather">
         <div className="row row1">
@@ -65,9 +65,9 @@ export default function Weather({ unit }) {
             <span className="temperature">{weather.temp}</span>
             <span className="tempUnits">
               <span className="activeTemp">˚F</span>
-              <span> |</span>
+              <span> | </span>
               <a href="/" alt="Celsius" className="unactiveTemp">
-                ˚C
+                C
               </a>
             </span>
           </div>
@@ -101,7 +101,9 @@ export default function Weather({ unit }) {
             </div>
             <div className="col-4 set2">
               <div className="city">
-                <span> {weather.city} </span>
+                <span>
+                  {weather.city}, {weather.country}
+                </span>
               </div>
               <span className="search-bar">
                 <input
@@ -147,7 +149,7 @@ export default function Weather({ unit }) {
       </div>
     );
   }
-  if (loaded && unit === "metric") {
+  if (weather.ready && unit === "metric") {
     return (
       <div className="Weather">
         <div className="row row1">
@@ -174,9 +176,9 @@ export default function Weather({ unit }) {
             <span className="temperature">{weather.temp}</span>
             <span className="tempUnits">
               <span className="activeTemp">˚C</span>
-              <span> |</span>
+              <span> | </span>
               <a href="/" alt="F" className="unactiveTemp">
-                ˚F
+                F
               </a>
             </span>
           </div>
@@ -210,7 +212,9 @@ export default function Weather({ unit }) {
             </div>
             <div className="col-4 set2">
               <div className="city">
-                <span> {weather.city} </span>
+                <span>
+                  {weather.city}, {weather.country}
+                </span>
               </div>
               <span className="search-bar">
                 <input
