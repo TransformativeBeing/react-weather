@@ -34,7 +34,7 @@ export default function Weather({ unit }) {
       sunset: "21:05",
       city: response.data.name,
       country: response.data.sys.country,
-      date: "Tuesday 18:00",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
