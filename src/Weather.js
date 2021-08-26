@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Date from "./Date";
 import "./Weather.css";
 import "./images/sunEmoji.png";
 
@@ -35,6 +36,7 @@ export default function Weather({ unit }) {
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
+      timeZone: response.data.timezone,
     });
   }
 
@@ -114,7 +116,7 @@ export default function Weather({ unit }) {
                   placeholder="Enter location... "
                 />
               </span>
-              <div className="date"> {weather.date} </div>
+              <Date newDate={weather.date} timeZone={weather.timeZone} />
             </div>
             <div className="col-4 set3">
               <div>
@@ -225,7 +227,7 @@ export default function Weather({ unit }) {
                   placeholder="Enter location... "
                 />
               </span>
-              <div className="date"> {weather.date} </div>
+              <Date newDate={weather.date} timeZone={weather.timeZone} />
             </div>
             <div className="col-4 set3">
               <div>
