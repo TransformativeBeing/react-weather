@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Date({ newDate, timeZone }) {
+export default function CurrentDate({ newDate, timeZone }) {
   console.log(newDate);
   console.log(timeZone);
   /*function timeMath(hour) {
@@ -68,13 +68,13 @@ export default function Date({ newDate, timeZone }) {
     "Thursday",
     "Friday",
     "Saturday",
-  ];*/
-
-  /* let day = days[weekMath(newDate.getDay())];
+  ];
+  
+   let day = days[weekMath(newDate.getDay())];
   let hours = hourMath();
   let minuets = minuetMath();*/
   return (
-    <div className="Date">
+    <div className="CurrentDate">
       <div>Monday</div>
     </div>
   );

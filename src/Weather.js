@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Date from "./Date";
+import Description from "./Description";
+import Humidity from "./Humidity";
 import SunTimes from "./SunTimes";
+import Date from "./CurrentDate";
 import CodeBy from "./CodeBy";
 import "./Weather.css";
 import "./images/sunEmoji.png";
-import Description from "./Description";
-import Humidity from "./Humidity";
+import CurrentDate from "./CurrentDate";
 
 export default function Weather({ unit }) {
   const [city, setCity] = useState(" ");
@@ -41,6 +42,7 @@ export default function Weather({ unit }) {
       date: new Date(response.data.dt * 1000),
       timeZone: response.data.timezone,
     });
+    //console.log(weather.date);
   }
 
   if (weather.ready && unit === "imperial") {
@@ -87,7 +89,7 @@ export default function Weather({ unit }) {
                   placeholder="Enter location... "
                 />
               </span>
-              <Date newDate={weather.date} timeZone={weather.timeZone} />
+              <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
             </div>
             <div className="col-4 set3">
               <div>
@@ -121,7 +123,7 @@ export default function Weather({ unit }) {
               <span className="windSpeed"> {weather.wind} </span>
             </div>
             <div>
-              <span className="windUnit">mph</span>
+              <span className="windUnit">km/h</span>
             </div>
           </div>
           <div className="col-6 group2">
@@ -154,7 +156,7 @@ export default function Weather({ unit }) {
                   placeholder="Enter location... "
                 />
               </span>
-              <Date newDate={weather.date} timeZone={weather.timeZone} />
+              <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
             </div>
             <div className="col-4 set3">
               <div>
