@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function CurrentDate({ newDate, timeZone }) {
-  //console.log(newDate);
-  //console.log(timeZone);
   function timeMath(hour) {
     let offSet = newDate.getTimezoneOffset() / -60;
     let time = hour - offSet + timeZone;
@@ -20,13 +18,11 @@ export default function CurrentDate({ newDate, timeZone }) {
   function hourMath() {
     let hour = newDate.getHours();
     let hourInput = timeMath(hour);
-    console.log(hourInput);
-    console.log(hour);
 
     if (hourInput >= 10) {
       return hourInput;
     } else {
-      return `0${hourInput}`;
+      return hourInput;
     }
   }
 
@@ -35,7 +31,7 @@ export default function CurrentDate({ newDate, timeZone }) {
     if (minuetInput >= 10) {
       return minuetInput;
     } else {
-      return `0${minuetInput}`;
+      return minuetInput;
     }
   }
 
@@ -43,8 +39,7 @@ export default function CurrentDate({ newDate, timeZone }) {
     let offSet = newDate.getTimezoneOffset() / -60;
     let hour = newDate.getHours();
     let time = hour - offSet + timeZone;
-    //console.log(week);
-    //console.log(time);
+
     if (time > 24 && weekDay > 6) {
       return (weekDay = 0);
     }
@@ -76,7 +71,7 @@ export default function CurrentDate({ newDate, timeZone }) {
   let minuets = minuetMath();
   return (
     <div className="CurrentDate">
-      <div>
+      <div className="date">
         {day} {hours}:{minuets}{" "}
       </div>
     </div>

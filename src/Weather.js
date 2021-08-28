@@ -8,9 +8,10 @@ import CodeBy from "./CodeBy";
 import "./Weather.css";
 import sunEmoji from "./sunEmoji.png";
 
-export default function Weather({ unit }) {
-  const [city, setCity] = useState(" ");
+export default function Weather({ place }) {
+  const [city, setCity] = useState(place);
   const [weather, setWeather] = useState({ ready: false });
+  const [unit, setUnit] = useState("imperial");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -42,6 +43,14 @@ export default function Weather({ unit }) {
     });
     //console.log(weather.date);
   }
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("metric");
+  }
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("imperial");
+  }
 
   if (weather.ready && unit === "imperial") {
     return (
@@ -62,7 +71,12 @@ export default function Weather({ unit }) {
             <span className="tempUnits">
               <span className="activeTemp">˚F</span>
               <span> | </span>
-              <a href="/" alt="Celsius" className="unactiveTemp">
+              <a
+                href="/"
+                alt="Celsius"
+                className="unactiveTemp"
+                onClick={showCelsius}
+              >
                 C
               </a>
             </span>
@@ -78,7 +92,7 @@ export default function Weather({ unit }) {
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar">
+              <span className="search-bar my-2">
                 <input
                   onChange={handleCity}
                   className="form-control"
@@ -98,7 +112,10 @@ export default function Weather({ unit }) {
                 </span>
                 <span className="locationButton">
                   <button>
-                    <i className="fas fa-map-marker-alt location"> </i>
+                    <i
+                      className="fas fa-map-marker-alt location"
+                      id="location"
+                    ></i>
                   </button>
                 </span>
               </div>
@@ -129,7 +146,12 @@ export default function Weather({ unit }) {
             <span className="tempUnits">
               <span className="activeTemp">˚C</span>
               <span> | </span>
-              <a href="/" alt="Fahrenheit" className="unactiveTemp">
+              <a
+                href="/"
+                alt="Fahrenheit"
+                className="unactiveTemp"
+                onClick={showFahrenheit}
+              >
                 F
               </a>
             </span>
@@ -145,7 +167,7 @@ export default function Weather({ unit }) {
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar">
+              <span className="search-bar my-2">
                 <input
                   onChange={handleCity}
                   className="form-control"
@@ -177,6 +199,10 @@ export default function Weather({ unit }) {
       </div>
     );
   } else {
+    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
+    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
+    axios.get(apiLink).then(handleResponse);
     return (
       <div className="Weather">
         <div className="row row1">
