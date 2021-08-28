@@ -3,11 +3,10 @@ import axios from "axios";
 import Description from "./Description";
 import Humidity from "./Humidity";
 import SunTimes from "./SunTimes";
-import Date from "./CurrentDate";
+import CurrentDate from "./CurrentDate";
 import CodeBy from "./CodeBy";
 import "./Weather.css";
-import "./images/sunEmoji.png";
-import CurrentDate from "./CurrentDate";
+import "./sunEmoji.png";
 
 export default function Weather({ unit }) {
   const [city, setCity] = useState(" ");
@@ -34,13 +33,13 @@ export default function Weather({ unit }) {
       temp: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
       humidity: Math.round(response.data.main.humidity),
-      imgSunset: "./images/sunEmoji.png",
+      imgSunset: "./sunEmoji.png",
       sunrise: "06:05",
       sunset: "21:05",
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
-      timeZone: response.data.timezone,
+      timeZone: response.data.timezone / 3600,
     });
     //console.log(weather.date);
   }

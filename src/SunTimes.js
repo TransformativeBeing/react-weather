@@ -1,6 +1,5 @@
 import React from "react";
-import "./images/sunEmoji.png";
-
+import "./sunEmoji.png";
 
 export default function SunTimes({ data }) {
   return (
@@ -9,7 +8,7 @@ export default function SunTimes({ data }) {
         className="sunEmoji"
         type="image"
         src={data.imgSunset}
-        alt="Sunrise"
+        alt="sunEmoji"
       />
       <div className="sunLabels">
         <span className="sunriseLabel"> Sunrise </span>

@@ -1,11 +1,12 @@
 import React from "react";
 
 export default function CurrentDate({ newDate, timeZone }) {
-  console.log(newDate);
-  console.log(timeZone);
-  /*function timeMath(hour) {
+  //console.log(newDate);
+  //console.log(timeZone);
+  function timeMath(hour) {
     let offSet = newDate.getTimezoneOffset() / -60;
     let time = hour - offSet + timeZone;
+
     if (time > 24) {
       return time - 24;
     }
@@ -19,6 +20,9 @@ export default function CurrentDate({ newDate, timeZone }) {
   function hourMath() {
     let hour = newDate.getHours();
     let hourInput = timeMath(hour);
+    console.log(hourInput);
+    console.log(hour);
+
     if (hourInput >= 10) {
       return hourInput;
     } else {
@@ -35,28 +39,25 @@ export default function CurrentDate({ newDate, timeZone }) {
     }
   }
 
-  function weekMath(week) {
+  function weekMath(weekDay) {
     let offSet = newDate.getTimezoneOffset() / -60;
     let hour = newDate.getHours();
     let time = hour - offSet + timeZone;
-
-    if (time > 24) {
-      week + 1;
-      if (week > 6) {
-        return (week = 0);
-      } else {
-        return week;
-      }
+    //console.log(week);
+    //console.log(time);
+    if (time > 24 && weekDay > 6) {
+      return (weekDay = 0);
     }
-    if (time < 0) {
-      week - 1;
-      if (week < 0) {
-        return (week = 6);
-      } else {
-        return week;
-      }
+    if (time > 24 && weekDay < 6) {
+      return weekDay + 1;
+    }
+    if (time < 0 && weekDay < 0) {
+      return (weekDay = 6);
+    }
+    if (time < 0 && weekDay > 0) {
+      return weekDay;
     } else {
-      return week;
+      return weekDay;
     }
   }
 
@@ -69,13 +70,15 @@ export default function CurrentDate({ newDate, timeZone }) {
     "Friday",
     "Saturday",
   ];
-  
-   let day = days[weekMath(newDate.getDay())];
+
+  let day = days[weekMath(newDate.getDay())];
   let hours = hourMath();
-  let minuets = minuetMath();*/
+  let minuets = minuetMath();
   return (
     <div className="CurrentDate">
-      <div>Monday</div>
+      <div>
+        {day} {hours}:{minuets}{" "}
+      </div>
     </div>
   );
 }
