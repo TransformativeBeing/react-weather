@@ -1,15 +1,10 @@
 import React from "react";
-import "./sunEmoji.png";
+import sunEmoji from "./sunEmoji.png";
 
 export default function SunTimes({ data }) {
   return (
     <div className="SunTimes col set1">
-      <img
-        className="sunEmoji"
-        type="image"
-        src={data.imgSunset}
-        alt="sunEmoji"
-      />
+      <img className="sunEmoji" type="image" src={sunEmoji} alt="sunEmoji" />
       <div className="sunLabels">
         <span className="sunriseLabel"> Sunrise </span>
         <span> | </span>

@@ -6,7 +6,7 @@ import SunTimes from "./SunTimes";
 import CurrentDate from "./CurrentDate";
 import CodeBy from "./CodeBy";
 import "./Weather.css";
-import "./sunEmoji.png";
+import sunEmoji from "./sunEmoji.png";
 
 export default function Weather({ unit }) {
   const [city, setCity] = useState(" ");
@@ -33,7 +33,6 @@ export default function Weather({ unit }) {
       temp: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
       humidity: Math.round(response.data.main.humidity),
-      imgSunset: "./sunEmoji.png",
       sunrise: "06:05",
       sunset: "21:05",
       city: response.data.name,
@@ -218,7 +217,7 @@ export default function Weather({ unit }) {
               <img
                 className="sunEmoji"
                 type="image"
-                src={weather.imgSunset}
+                src={sunEmoji}
                 alt="Sunrise"
               />
               <div className="sunLabels">
