@@ -13,6 +13,24 @@ export default function Weather({ place }) {
   const [weather, setWeather] = useState({ ready: false });
   const [unit, setUnit] = useState("imperial");
 
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("metric");
+    let unit = "metric";
+    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
+    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
+    axios.get(apiLink).then(handleResponse);
+  }
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("imperial");
+    let unit = "imperial";
+    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
+    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
+    axios.get(apiLink).then(handleResponse);
+  }
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = `cebebe92bb0f992987113af37d5c411b`;
@@ -26,7 +44,7 @@ export default function Weather({ place }) {
   }
 
   function handleResponse(response) {
-    //console.log(response.data);
+    console.log(response.data);
     setWeather({
       ready: true,
       description: response.data.weather[0].description,
@@ -34,22 +52,14 @@ export default function Weather({ place }) {
       temp: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
       humidity: Math.round(response.data.main.humidity),
-      sunrise: "06:05",
-      sunset: "21:05",
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000),
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
       timeZone: response.data.timezone / 3600,
     });
     //console.log(weather.date);
-  }
-  function showCelsius(event) {
-    event.preventDefault();
-    setUnit("metric");
-  }
-  function showFahrenheit(event) {
-    event.preventDefault();
-    setUnit("imperial");
   }
 
   if (weather.ready && unit === "imperial") {
@@ -85,17 +95,17 @@ export default function Weather({ place }) {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="row row3 mt-1 mb-5">
-            <SunTimes data={weather} />
+            <SunTimes data={weather} timeZone={weather.timeZone} />
             <div className="col-4 set2">
               <div className="city">
                 <span>
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar my-3">
+              <span>
                 <input
                   onChange={handleCity}
-                  className="form-control"
+                  className="form-control search-bar"
                   type="search"
                   autoFocus="on"
                   placeholder="Enter location... "
@@ -160,17 +170,17 @@ export default function Weather({ place }) {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="row row3 mt-1 mb-5">
-            <SunTimes data={weather} />
+            <SunTimes data={weather} timeZone={weather.timeZone} />
             <div className="col-4 set2">
               <div className="city">
                 <span>
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar my-3">
+              <span>
                 <input
                   onChange={handleCity}
-                  className="form-control"
+                  className="form-control search-bar"
                   type="search"
                   autoFocus="on"
                   placeholder="Enter location... "
@@ -261,10 +271,10 @@ export default function Weather({ place }) {
               <div className="city">
                 <span>Loading...</span>
               </div>
-              <span className="search-bar my-2">
+              <span>
                 <input
                   onChange={handleCity}
-                  className="form-control"
+                  className="form-control search-bar"
                   type="search"
                   autoFocus="on"
                   placeholder="Enter location... "

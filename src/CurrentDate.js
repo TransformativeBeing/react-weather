@@ -22,7 +22,7 @@ export default function CurrentDate({ newDate, timeZone }) {
     if (hourInput >= 10) {
       return hourInput;
     } else {
-      return hourInput;
+      return `0${hourInput}`;
     }
   }
 
@@ -31,7 +31,7 @@ export default function CurrentDate({ newDate, timeZone }) {
     if (minuetInput >= 10) {
       return minuetInput;
     } else {
-      return minuetInput;
+      return `0${minuetInput}`;
     }
   }
 
