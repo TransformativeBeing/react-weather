@@ -228,7 +228,7 @@
   font-size: 12px;
   font-weight: 500;
   max-width: 510px;
-  opacity: 85%;
+  opacity: 0.85;
   font-family: monospace;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
