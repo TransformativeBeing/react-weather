@@ -27,18 +27,20 @@ export default function ForecastDay({ data, timeZone }) {
 
   let newDate = data.day;
   let day = days[weekMath(newDate.getDay())];
-
+  /*{
+      ready: true,
+      day: new Date(response.data.daily[0].dt * 1000),
+      icon: response.data.daily[0].weather[0].icon,
+      maxTemp: Math.round(response.data.daily[0].temp.max),
+      minTemp: Math.round(response.data.daily[0].temp.min),
+    }*/
   return (
     <div className="ForecastDay">
-      <div className="row row4">
-        <div className="col">
-          <div className="day mb-2">{day}</div>
-          <WeatherIcon weatherImg={data.icon} imgSize={34} />
-          <div className="temp mt-2">
-            <span className="high me-2">{data.maxTemp}˚</span>
-            <span className="low">{data.minTemp}˚</span>
-          </div>
-        </div>
+      <div className="day mb-2">{day}</div>
+      <WeatherIcon weatherImg={data.icon} imgSize={34} />
+      <div className="temp mt-2">
+        <span className="high me-2">{data.maxTemp}˚</span>
+        <span className="low">{data.minTemp}˚</span>
       </div>
     </div>
   );

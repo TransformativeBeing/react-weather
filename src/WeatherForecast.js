@@ -5,23 +5,27 @@ import "./WeatherForecast.css";
 import ForecastDay from "./ForecastDay";
 
 export default function WeatherForecast({ unit, data }) {
-  const [forecast, setForecast] = useState({ ready: false });
+  const [forecast, setForecast] = useState(false);
 
   function forecastResponse(response) {
     //console.log(response.data);
-    setForecast({
-      ready: true,
-      day: new Date(response.data.daily[0].dt * 1000),
-      icon: response.data.daily[0].weather[0].icon,
-      maxTemp: Math.round(response.data.daily[0].temp.max),
-      minTemp: Math.round(response.data.daily[0].temp.min),
-    });
+    setForecast(response.data.daily);
   }
 
-  if (forecast.ready && unit === "imperial") {
+  if (forecast) {
     return (
       <div className="WeatherForecast">
-        <ForecastDay data={forecast} timeZone={data.timeZone} />
+        <div className="row row4">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 4) {
+              return (
+                <div className="col" key={index}>
+                  <ForecastDay data={dailyForecast} timeZone={data.timeZone} />
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
     );
   } else {
