@@ -108,7 +108,7 @@ export default function Weather({ place }) {
                   className="form-control search-bar"
                   type="search"
                   autoFocus="on"
-                  placeholder="Enter location... "
+                  placeholder="Enter city... "
                 />
               </span>
               <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
@@ -183,7 +183,7 @@ export default function Weather({ place }) {
                   className="form-control search-bar"
                   type="search"
                   autoFocus="on"
-                  placeholder="Enter location... "
+                  placeholder="Enter city... "
                 />
               </span>
               <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
