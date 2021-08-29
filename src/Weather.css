@@ -104,20 +104,14 @@
   top: 5px;
 }
 
-.Weather .sunriseLabel {
+.Weather .sunLabels {
   color: #4353a1;
 }
 
-.Weather .sunsetLabel {
-  color: #4353a1;
-}
-
-.Weather .sunriseTime {
+.Weather .sunTimes {
   color: #2c91e4;
-}
-
-.Weather .sunsetTime {
-  color: #2c91e4;
+  position: relative;
+  left: 2px;
 }
 
 .Weather .city {
