@@ -247,3 +247,7 @@
 .Weather .openSourceLink:hover {
   text-decoration: underline;
 }
+
+.Weather .Loading {
+  margin-top: 5px;
+}

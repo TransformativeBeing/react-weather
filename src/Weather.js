@@ -5,8 +5,8 @@ import Humidity from "./Humidity";
 import SunTimes from "./SunTimes";
 import CurrentDate from "./CurrentDate";
 import CodeBy from "./CodeBy";
+import Loading from "./Loading";
 import "./Weather.css";
-import sunEmoji from "./sunEmoji.png";
 
 export default function Weather({ place }) {
   const [city, setCity] = useState(place);
@@ -215,103 +215,7 @@ export default function Weather({ place }) {
     axios.get(apiLink).then(handleResponse);
     return (
       <div className="Weather">
-        <div className="row row1">
-          <div className="col description">
-            <div>Loading...</div>
-            <img
-              src={weather.icon}
-              className="descriptionImg"
-              alt={weather.description}
-            />
-          </div>
-        </div>
-        <div className="row row2">
-          <div className="col-3 group1">
-            <div>
-              <span className="windEmoji">🌬</span>
-              <span className="windSpeed">_ _</span>
-            </div>
-            <div>
-              <span className="windUnit">mph</span>
-            </div>
-          </div>
-          <div className="col-6 group2">
-            <span className="temperature">_ _</span>
-            <span className="fahrenheit">˚F</span>
-          </div>
-          <div className="col-3 group3">
-            <div className="humidity">
-              <span>_ _</span>
-              <span>%</span>
-            </div>
-            <div className="humidityLabel">Humidity</div>
-          </div>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="row row3 mt-4 mb-5">
-            <div className="col set1">
-              <img
-                className="sunEmoji"
-                type="image"
-                src={sunEmoji}
-                alt="Sunrise"
-              />
-              <div className="sunLabels">
-                <span className="sunriseLabel"> Sunrise </span>
-                <span> | </span>
-                <span className="sunsetLabel"> Sunset </span>
-              </div>
-              <div className="sunTimes">
-                <span className="sunriseTime">_ _ : _ _</span>
-                <span> | </span>
-                <span className="sunsetTime">_ _ : _ _</span>
-              </div>
-            </div>
-            <div className="col-4 set2">
-              <div className="city">
-                <span>Loading...</span>
-              </div>
-              <span>
-                <input
-                  onChange={handleCity}
-                  className="form-control search-bar"
-                  type="search"
-                  autoFocus="on"
-                  placeholder="Enter location... "
-                />
-              </span>
-              <div className="date">Loading _ _ : _ _</div>
-            </div>
-            <div className="col-4 set3">
-              <div>
-                <span>
-                  <button type="submit" className="searchButton">
-                    Search
-                  </button>
-                </span>
-                <span className="locationButton">
-                  <button>
-                    <i className="fas fa-map-marker-alt location"> </i>
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </form>
-        <div className="weatherForecast"></div>
-        <div className="row row5">
-          <div className="col"> </div>
-          <div className="col-7 codedBy">
-            <a
-              className="openSourceLink"
-              href="https://github.com/TransformativeBeing/react-weather"
-            >
-              Open-Source Code
-            </a>
-            <span> by Jessica Nolte</span>
-          </div>
-          <div className="col"> </div>
-        </div>
+        <Loading />
       </div>
     );
   }
