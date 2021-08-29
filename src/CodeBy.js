@@ -8,6 +8,8 @@ export default function CodeBy() {
           <a
             className="openSourceLink"
             href="https://github.com/TransformativeBeing/react-weather"
+            target="_blank"
+            rel="noreferrer"
           >
             Open-Source Code
           </a>

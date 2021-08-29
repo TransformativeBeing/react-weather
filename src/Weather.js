@@ -44,7 +44,7 @@ export default function Weather({ place }) {
   }
 
   function handleResponse(response) {
-    console.log(response.data);
+    //console.log(response.data);
     setWeather({
       ready: true,
       description: response.data.weather[0].description,
