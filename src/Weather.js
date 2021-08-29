@@ -133,6 +133,17 @@ export default function Weather({ place }) {
           </div>
         </form>
         <div className="weatherForecast"></div>
+        <div className="col-12 codedBy">
+          <a
+            className="openSourceLink"
+            href="https://github.com/TransformativeBeing/react-weather"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-Source Code
+          </a>
+          <span> by Jessica Nolte</span>
+        </div>
         <CodeBy />
       </div>
     );
