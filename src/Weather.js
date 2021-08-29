@@ -30,7 +30,7 @@ export default function Weather({ place }) {
     setWeather({
       ready: true,
       description: response.data.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       temp: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
       humidity: Math.round(response.data.main.humidity),
@@ -56,7 +56,7 @@ export default function Weather({ place }) {
     return (
       <div className="Weather">
         <Description data={weather} />
-        <div className="row row2">
+        <div className="row row2 mt-3">
           <div className="Wind col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>
@@ -84,7 +84,7 @@ export default function Weather({ place }) {
           <Humidity data={weather} />
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="row row3 mt-2 mb-5">
+          <div className="row row3 mt-1 mb-5">
             <SunTimes data={weather} />
             <div className="col-4 set2">
               <div className="city">
@@ -92,7 +92,7 @@ export default function Weather({ place }) {
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar my-2">
+              <span className="search-bar my-3">
                 <input
                   onChange={handleCity}
                   className="form-control"
@@ -131,7 +131,7 @@ export default function Weather({ place }) {
     return (
       <div className="Weather">
         <Description data={weather} />
-        <div className="row row2">
+        <div className="row row2 mt-3">
           <div className="col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>
@@ -159,7 +159,7 @@ export default function Weather({ place }) {
           <Humidity data={weather} />
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="row row3 mt-2 mb-5">
+          <div className="row row3 mt-1 mb-5">
             <SunTimes data={weather} />
             <div className="col-4 set2">
               <div className="city">
@@ -167,7 +167,7 @@ export default function Weather({ place }) {
                   {weather.city}, {weather.country}
                 </span>
               </div>
-              <span className="search-bar my-2">
+              <span className="search-bar my-3">
                 <input
                   onChange={handleCity}
                   className="form-control"
@@ -261,7 +261,7 @@ export default function Weather({ place }) {
               <div className="city">
                 <span>Loading...</span>
               </div>
-              <span className="search-bar">
+              <span className="search-bar my-2">
                 <input
                   onChange={handleCity}
                   className="form-control"
