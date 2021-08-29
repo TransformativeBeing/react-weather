@@ -59,8 +59,9 @@ export default function Weather({ place }) {
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
       timeZone: response.data.timezone / 3600,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
-    //console.log(weather.date);
   }
 
   if (weather.ready && unit === "imperial") {
@@ -133,7 +134,7 @@ export default function Weather({ place }) {
             </div>
           </div>
         </form>
-        <WeatherForecast data={weather} />
+        <WeatherForecast unit={unit} data={weather} />
         <CodeBy />
       </div>
     );
@@ -216,7 +217,7 @@ export default function Weather({ place }) {
     axios.get(apiLink).then(handleResponse);
     return (
       <div className="Weather">
-        <Loading />
+        <Loading size="500" color="rgba(211, 211, 211, 0.6)" />
       </div>
     );
   }
