@@ -5,7 +5,7 @@ export default function Description({ data }) {
   return (
     <div className="row row1">
       <div className="Description col description">
-        <WeatherIcon weatherImg={data.icon} />
+        <WeatherIcon weatherImg={data.icon} imgSize={64} />
         <div> {data.description} </div>
       </div>
     </div>

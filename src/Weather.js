@@ -4,6 +4,7 @@ import Description from "./Description";
 import Humidity from "./Humidity";
 import SunTimes from "./SunTimes";
 import CurrentDate from "./CurrentDate";
+import WeatherForecast from "./WeatherForecast";
 import CodeBy from "./CodeBy";
 import Loading from "./Loading";
 import "./Weather.css";
@@ -94,7 +95,7 @@ export default function Weather({ place }) {
           <Humidity data={weather} />
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="row row3 mt-1 mb-5">
+          <div className="row row3">
             <SunTimes data={weather} timeZone={weather.timeZone} />
             <div className="col-4 set2">
               <div className="city">
@@ -132,7 +133,7 @@ export default function Weather({ place }) {
             </div>
           </div>
         </form>
-        <div className="weatherForecast"></div>
+        <WeatherForecast data={weather} />
         <CodeBy />
       </div>
     );
@@ -169,7 +170,7 @@ export default function Weather({ place }) {
           <Humidity data={weather} />
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="row row3 mt-1 mb-5">
+          <div className="row row3">
             <SunTimes data={weather} timeZone={weather.timeZone} />
             <div className="col-4 set2">
               <div className="city">
@@ -204,7 +205,7 @@ export default function Weather({ place }) {
             </div>
           </div>
         </form>
-        <div className="weatherForecast"></div>
+        <WeatherForecast data={weather} />
         <CodeBy />
       </div>
     );

@@ -1,6 +1,6 @@
 .Weather .row1 {
   text-align: center;
-  padding: 35px 0 0;
+  padding: 12px 0 0;
 }
 
 .Weather .descriptionImg {
@@ -90,6 +90,7 @@
 
 .Weather .row3 {
   text-align: center;
+  padding: 1px 0 0;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -184,43 +185,6 @@
 .Weather .location:hover {
   cursor: pointer;
   background: #4353a1;
-}
-
-.Weather .row4 {
-  text-align: center;
-  padding: 15px 50px 35px;
-  line-height: 1.1;
-}
-
-.Weather .day {
-  color: #2c91e4;
-  font-weight: 700;
-  position: relative;
-  top: 5px;
-}
-
-.Weather .weather {
-  max-width: 45px;
-}
-
-.Weather .temp {
-  font-size: 14px;
-  font-weight: 600;
-  position: relative;
-  bottom: 5px;
-}
-
-.Weather .high {
-  color: #fff01f;
-  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-    -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-.Weather .low {
-  color: #ff7e67;
-  opacity: 95%;
-  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .Weather .row5 {

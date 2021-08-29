@@ -1,0 +1,36 @@
+.WeatherForecast .row4 {
+  text-align: center;
+  padding: 5px 50px 30px;
+  line-height: 1.1;
+}
+
+.WeatherForecast .day {
+  color: #2c91e4;
+  font-weight: 700;
+  position: relative;
+  top: 5px;
+}
+
+.WeatherForecast .weather {
+  max-width: 45px;
+}
+
+.WeatherForecast .temp {
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  bottom: 5px;
+}
+
+.WeatherForecast .high {
+  color: #fff01f;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.WeatherForecast .low {
+  color: #8bcaf3;
+  opacity: 95%;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
