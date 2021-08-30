@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Description from "./Description";
 import Humidity from "./Humidity";
@@ -14,23 +14,17 @@ export default function Weather({ place }) {
   const [weather, setWeather] = useState({ ready: false });
   const [unit, setUnit] = useState("imperial");
 
+  useEffect(() => {
+    setWeather(false);
+  }, [unit]);
+
   function showCelsius(event) {
     event.preventDefault();
     setUnit("metric");
-    let unit = "metric";
-    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
-    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
-    axios.get(apiLink).then(handleResponse);
   }
   function showFahrenheit(event) {
     event.preventDefault();
     setUnit("imperial");
-    let unit = "imperial";
-    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
-    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
-    axios.get(apiLink).then(handleResponse);
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -43,7 +37,6 @@ export default function Weather({ place }) {
   function handleCity(event) {
     setCity(event.target.value);
   }
-
   function handleResponse(response) {
     //console.log(response.data);
     setWeather({

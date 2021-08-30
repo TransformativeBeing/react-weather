@@ -2,45 +2,45 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function ForecastDay({ data, timeZone }) {
-  function weekMath(weekDay) {
+  function weekMath(week) {
     let offSet = newDate.getTimezoneOffset() / -60;
     let hour = newDate.getHours();
     let time = hour - offSet + timeZone;
 
-    if (time > 24 && weekDay > 6) {
-      return (weekDay = 0);
+    if (time > 24 && week > 6) {
+      return (week = 0);
     }
-    if (time > 24 && weekDay < 6) {
-      return weekDay + 1;
+    if (time > 24 && week < 6) {
+      return week + 1;
     }
-    if (time < 0 && weekDay < 0) {
-      return (weekDay = 6);
+    if (time < 0 && week < 0) {
+      return (week = 6);
     }
-    if (time < 0 && weekDay > 0) {
-      return weekDay;
+    if (time < 0 && week > 0) {
+      return week;
     } else {
-      return weekDay;
+      return week;
     }
   }
 
+  let info = {
+    ready: true,
+    day: new Date(data.dt * 1000),
+    icon: data.weather[0].icon,
+    maxTemp: Math.round(data.temp.max),
+    minTemp: Math.round(data.temp.min),
+  };
+  let newDate = info.day;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  let newDate = data.day;
   let day = days[weekMath(newDate.getDay())];
-  /*{
-      ready: true,
-      day: new Date(response.data.daily[0].dt * 1000),
-      icon: response.data.daily[0].weather[0].icon,
-      maxTemp: Math.round(response.data.daily[0].temp.max),
-      minTemp: Math.round(response.data.daily[0].temp.min),
-    }*/
+
   return (
     <div className="ForecastDay">
       <div className="day mb-2">{day}</div>
-      <WeatherIcon weatherImg={data.icon} imgSize={34} />
+      <WeatherIcon weatherImg={info.icon} imgSize={34} />
       <div className="temp mt-2">
-        <span className="high me-2">{data.maxTemp}˚</span>
-        <span className="low">{data.minTemp}˚</span>
+        <span className="high me-2">{info.maxTemp}˚</span>
+        <span className="low">{info.minTemp}˚</span>
       </div>
     </div>
   );
