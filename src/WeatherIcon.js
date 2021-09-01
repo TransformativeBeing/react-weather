@@ -23,12 +23,12 @@ export default function WeatherIcon({ weatherImg, imgSize }) {
     "50n": "FOG",
   };
   const weatherColor = {
-    CLEAR_DAY: "orange",
-    CLEAR_NIGHT: "#79C2D0",
+    CLEAR_DAY: "#eb6df0",
+    CLEAR_NIGHT: "#79a2d0",
     PARTLY_CLOUDY_DAY: "lightgray",
     PARTLY_CLOUDY_NIGHT: "darkgray",
     CLOUDY: "gray",
-    RAIN: "#4da0e4",
+    RAIN: "#3d42c4",
     SNOW: "lightgray",
     FOG: "lightgray",
   };

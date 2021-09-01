@@ -39,7 +39,7 @@ export default function ForecastDay({ data, timeZone }) {
       <div className="day mb-2">{day}</div>
       <WeatherIcon weatherImg={info.icon} imgSize={34} />
       <div className="temp mt-2">
-        <span className="high me-2">{info.maxTemp}˚</span>
+        <span className="high me-1">{info.maxTemp}˚</span>
         <span className="low">{info.minTemp}˚</span>
       </div>
     </div>

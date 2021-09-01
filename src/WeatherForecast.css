@@ -23,12 +23,12 @@
 }
 
 .WeatherForecast .high {
-  color: #fffed1;
+  color: #f5caf7;
   text-shadow: var(--outline);
 }
 
 .WeatherForecast .low {
-  color: #e8fdff;
+  color: #9d9feb;
   opacity: 0.95;
   text-shadow: var(--outline);
 }
