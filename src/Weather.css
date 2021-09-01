@@ -4,7 +4,7 @@
 }
 
 .Weather .description {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 35px;
   line-height: 1.2;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -24,12 +24,12 @@
 }
 
 .Weather .windSpeed {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 20px;
 }
 
 .Weather .windUnit {
-  color: #4353a1;
+  color: var(--secondary-color);
   font-size: 17px;
   padding: 0 0 0 35px;
 }
@@ -44,7 +44,7 @@
 }
 
 .Weather .temperature {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 50px;
   padding: 0 0 0 28px;
 }
@@ -57,15 +57,15 @@
   font-weight: 700;
 }
 .Weather .activeTemp {
-  color: #2c91e4;
+  color: var(--primary-color);
 }
 .Weather .unactiveTemp {
-  color: #4353a1;
+  color: var(--secondary-color);
   text-decoration: none;
 }
 
 .Weather .unactiveTemp:hover {
-  color: #2c91e4;
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -75,19 +75,19 @@
 }
 
 .Weather .humidity {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 20px;
 }
 
 .Weather .humidityLabel {
-  color: #4353a1;
+  color: var(--secondary-color);
   font-size: 17px;
 }
 
 .Weather .row3 {
   text-align: center;
   padding: 1px 0 0;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--shadow);
 }
 
 .Weather .set1 {
@@ -102,17 +102,17 @@
 }
 
 .Weather .sunLabels {
-  color: #4353a1;
+  color: var(--secondary-color);
 }
 
 .Weather .sunTimes {
-  color: #2c91e4;
+  color: var(--primary-color);
   position: relative;
   left: 2px;
 }
 
 .Weather .city {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 18px;
   position: relative;
   right: 0px;
@@ -120,11 +120,11 @@
 
 .Weather .search-bar {
   margin: 3px 0;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
 }
 
 .Weather .date {
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 18px;
   position: relative;
   right: 0px;
@@ -139,22 +139,22 @@
   padding: 3px 4px;
   position: relative;
   right: 20px;
-  color: #2c91e4;
+  color: var(--primary-color);
   font-size: 13px;
   font-weight: 700;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--shadow);
   width: 69px;
   height: 30px;
   background: transparent;
-  border: 2px solid #4353a1;
+  border: 2px solid var(--secondary-color);
   border-radius: 30px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
   transition: all 200ms ease-in-out;
 }
 
 .Weather .searchButton:hover {
   cursor: pointer;
-  background: #4353a1;
+  background: var(--secondary-color);
 }
 .Weather button {
   background: transparent;
@@ -168,12 +168,12 @@
   max-width: 510px;
   opacity: 0.85;
   font-family: monospace;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--shadow);
 }
 
 .Weather .openSourceLink {
   text-decoration: none;
-  transition: all 200ms ease;
+  transition: all 200ms ease-in-out;
 }
 
 .Weather .openSourceLink:hover {
