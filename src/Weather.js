@@ -11,11 +11,11 @@ import "./Weather.css";
 
 export default function Weather({ place }) {
   const [city, setCity] = useState(place);
-  const [weather, setWeather] = useState({ ready: false });
+  const [weatherData, setWeatherData] = useState({ ready: false });
   const [unit, setUnit] = useState("imperial");
 
   useEffect(() => {
-    setWeather(false);
+    setWeatherData(false);
   }, [unit]);
 
   function showCelsius(event) {
@@ -26,20 +26,21 @@ export default function Weather({ place }) {
     event.preventDefault();
     setUnit("imperial");
   }
-  function handleSubmit(event) {
-    event.preventDefault();
-    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
+  function search() {
+    let apiKey = `acde47caf66ba769e649bfd77d6c16aa`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
     let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
     axios.get(apiLink).then(handleResponse);
   }
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
   function handleCity(event) {
     setCity(event.target.value);
   }
   function handleResponse(response) {
-    //console.log(response.data);
-    setWeather({
+    setWeatherData({
       ready: true,
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
@@ -57,22 +58,64 @@ export default function Weather({ place }) {
     });
   }
 
-  if (weather.ready && unit === "imperial") {
+  let form = (
+    <form onSubmit={handleSubmit}>
+      <div className="row row3">
+        <SunTimes data={weatherData} timeZone={weatherData.timeZone} />
+        <div className="col-4 set2">
+          <div className="city">
+            <span>
+              {weatherData.city}, {weatherData.country}
+            </span>
+          </div>
+          <span>
+            <input
+              onChange={handleCity}
+              className="form-control search-bar"
+              type="search"
+              autoFocus="on"
+              placeholder="Enter city... "
+            />
+          </span>
+          <CurrentDate
+            newDate={weatherData.date}
+            timeZone={weatherData.timeZone}
+          />
+        </div>
+        <div className="col-4 set3">
+          <div>
+            <span>
+              <button type="submit" className="searchButton">
+                Search
+              </button>
+            </span>
+            <span className="locationButton">
+              <button>
+                <i className="fas fa-map-marker-alt location" id="location"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
+
+  if (weatherData.ready && unit === "imperial") {
     return (
       <div className="Weather">
-        <Description data={weather} />
+        <Description data={weatherData} />
         <div className="row row2 mt-3">
           <div className="Wind col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>
-              <span className="windSpeed"> {weather.wind} </span>
+              <span className="windSpeed"> {weatherData.wind} </span>
             </div>
             <div>
               <span className="windUnit">mph</span>
             </div>
           </div>
           <div className="col-6 group2">
-            <span className="temperature">{weather.temp}</span>
+            <span className="temperature">{weatherData.temp}</span>
             <span className="tempUnits">
               <span className="activeTemp">˚F</span>
               <span> | </span>
@@ -86,68 +129,30 @@ export default function Weather({ place }) {
               </a>
             </span>
           </div>
-          <Humidity data={weather} />
+          <Humidity data={weatherData} />
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="row row3">
-            <SunTimes data={weather} timeZone={weather.timeZone} />
-            <div className="col-4 set2">
-              <div className="city">
-                <span>
-                  {weather.city}, {weather.country}
-                </span>
-              </div>
-              <span>
-                <input
-                  onChange={handleCity}
-                  className="form-control search-bar"
-                  type="search"
-                  autoFocus="on"
-                  placeholder="Enter city... "
-                />
-              </span>
-              <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
-            </div>
-            <div className="col-4 set3">
-              <div>
-                <span>
-                  <button type="submit" className="searchButton">
-                    Search
-                  </button>
-                </span>
-                <span className="locationButton">
-                  <button>
-                    <i
-                      className="fas fa-map-marker-alt location"
-                      id="location"
-                    ></i>
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </form>
-        <WeatherForecast unit={unit} data={weather} />
+        {form}
+        <WeatherForecast unit={unit} data={weatherData} />
         <CodeBy />
       </div>
     );
   }
-  if (weather.ready && unit === "metric") {
+  if (weatherData.ready && unit === "metric") {
     return (
       <div className="Weather">
-        <Description data={weather} />
+        <Description data={weatherData} />
         <div className="row row2 mt-3">
           <div className="col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>
-              <span className="windSpeed"> {weather.wind} </span>
+              <span className="windSpeed"> {weatherData.wind} </span>
             </div>
             <div>
               <span className="windUnit">km/h</span>
             </div>
           </div>
           <div className="col-6 group2">
-            <span className="temperature">{weather.temp}</span>
+            <span className="temperature">{weatherData.temp}</span>
             <span className="tempUnits">
               <span className="activeTemp">˚C</span>
               <span> | </span>
@@ -161,53 +166,15 @@ export default function Weather({ place }) {
               </a>
             </span>
           </div>
-          <Humidity data={weather} />
+          <Humidity data={weatherData} />
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="row row3">
-            <SunTimes data={weather} timeZone={weather.timeZone} />
-            <div className="col-4 set2">
-              <div className="city">
-                <span>
-                  {weather.city}, {weather.country}
-                </span>
-              </div>
-              <span>
-                <input
-                  onChange={handleCity}
-                  className="form-control search-bar"
-                  type="search"
-                  autoFocus="on"
-                  placeholder="Enter city... "
-                />
-              </span>
-              <CurrentDate newDate={weather.date} timeZone={weather.timeZone} />
-            </div>
-            <div className="col-4 set3">
-              <div>
-                <span>
-                  <button type="submit" className="searchButton">
-                    Search
-                  </button>
-                </span>
-                <span className="locationButton">
-                  <button>
-                    <i className="fas fa-map-marker-alt location"> </i>
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </form>
-        <WeatherForecast data={weather} />
+        {form}
+        <WeatherForecast data={weatherData} />
         <CodeBy />
       </div>
     );
   } else {
-    let apiKey = `cebebe92bb0f992987113af37d5c411b`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
-    let apiLink = `${apiUrl}${city}&units=${unit}&appid=${apiKey}`;
-    axios.get(apiLink).then(handleResponse);
+    search();
     return (
       <div className="Weather">
         <Loading size="500" color="rgba(211, 211, 211, 0.6)" />

@@ -28,6 +28,7 @@ export default function CurrentDate({ newDate, timeZone }) {
 
   function minuetMath() {
     let minuetInput = newDate.getMinutes();
+
     if (minuetInput >= 10) {
       return minuetInput;
     } else {
@@ -69,6 +70,7 @@ export default function CurrentDate({ newDate, timeZone }) {
   let day = days[weekMath(newDate.getDay())];
   let hours = hourMath();
   let minuets = minuetMath();
+
   return (
     <div className="CurrentDate">
       <div className="date">
