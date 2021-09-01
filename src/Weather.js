@@ -84,16 +84,9 @@ export default function Weather({ place }) {
         </div>
         <div className="col-4 set3">
           <div>
-            <span>
-              <button type="submit" className="searchButton">
-                Search
-              </button>
-            </span>
-            <span className="locationButton">
-              <button>
-                <i className="fas fa-map-marker-alt location" id="location"></i>
-              </button>
-            </span>
+            <button type="submit" className="searchButton">
+              Search
+            </button>
           </div>
         </div>
       </div>
@@ -104,7 +97,7 @@ export default function Weather({ place }) {
     return (
       <div className="Weather">
         <Description data={weatherData} />
-        <div className="row row2 mt-3">
+        <div className="row row2 mt-2">
           <div className="Wind col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>
@@ -141,7 +134,7 @@ export default function Weather({ place }) {
     return (
       <div className="Weather">
         <Description data={weatherData} />
-        <div className="row row2 mt-3">
+        <div className="row row2 mt-2">
           <div className="col-3 group1">
             <div>
               <span className="windEmoji">🌬</span>

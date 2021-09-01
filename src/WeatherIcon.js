@@ -28,7 +28,7 @@ export default function WeatherIcon({ weatherImg, imgSize }) {
     PARTLY_CLOUDY_DAY: "lightgray",
     PARTLY_CLOUDY_NIGHT: "darkgray",
     CLOUDY: "gray",
-    RAIN: "lightblue",
+    RAIN: "#4da0e4",
     SNOW: "lightgray",
     FOG: "lightgray",
   };
