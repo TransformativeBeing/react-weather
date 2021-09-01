@@ -40,7 +40,7 @@
 
 .Weather .group2 {
   position: relative;
-  right: 6px;
+  left: 6px;
 }
 
 .Weather .temperature {
@@ -110,7 +110,10 @@
   position: relative;
   left: 2px;
 }
-
+.set2 {
+  position: relative;
+  right: 9px;
+}
 .Weather .city {
   color: var(--primary-color);
   font-size: 18px;
@@ -131,7 +134,9 @@
 }
 
 .Weather .set3 {
-  padding: 33px 0 0;
+  position: relative;
+  top: 36px;
+  right: 6px;
 }
 
 .Weather .searchButton {
