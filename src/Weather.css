@@ -3,10 +3,6 @@
   padding: 6px 0 0;
 }
 
-.Weather .descriptionImg {
-  max-width: 64px;
-}
-
 .Weather .description {
   color: #2c91e4;
   font-size: 35px;
