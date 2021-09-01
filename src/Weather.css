@@ -176,8 +176,12 @@
   text-shadow: var(--shadow);
 }
 
+.codedBy {
+  color: var(--secondary-color);
+}
 .Weather .openSourceLink {
   text-decoration: none;
+  color: var(--primary-color);
   transition: all 200ms ease-in-out;
 }
 

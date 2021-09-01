@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #2c91e4;
-  --secondary-color: #4353a1;
+  --primary-color: #f5c7f7;
+  --secondary-color: #27296d;
   --shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   --outline: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
@@ -16,6 +16,6 @@ body {
   background-image: radial-gradient(
     592px at 48.2% 50%,
     rgba(255, 255, 249, 0.6) 0%,
-    rgb(160, 199, 254) 74.6%
+    #4f52c0 74.6%
   );
 }
