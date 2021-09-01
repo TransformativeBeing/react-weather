@@ -96,74 +96,78 @@ export default function Weather({ place }) {
   if (weatherData.ready && unit === "imperial") {
     return (
       <div className="Weather">
-        <Description data={weatherData} />
-        <div className="row row2 mt-2">
-          <div className="Wind col-3 group1">
-            <div>
-              <span className="windEmoji">🌬</span>
-              <span className="windSpeed"> {weatherData.wind} </span>
+        <div className="container">
+          <Description data={weatherData} />
+          <div className="row row2 mt-2">
+            <div className="Wind col-3 group1">
+              <div>
+                <span className="windEmoji">🌬</span>
+                <span className="windSpeed"> {weatherData.wind} </span>
+              </div>
+              <div>
+                <span className="windUnit">mph</span>
+              </div>
             </div>
-            <div>
-              <span className="windUnit">mph</span>
+            <div className="col-6 group2">
+              <span className="temperature">{weatherData.temp}</span>
+              <span className="tempUnits">
+                <span className="activeTemp">˚F</span>
+                <span> | </span>
+                <a
+                  href="/"
+                  alt="Celsius"
+                  className="unactiveTemp"
+                  onClick={showCelsius}
+                >
+                  C
+                </a>
+              </span>
             </div>
+            <Humidity data={weatherData} />
           </div>
-          <div className="col-6 group2">
-            <span className="temperature">{weatherData.temp}</span>
-            <span className="tempUnits">
-              <span className="activeTemp">˚F</span>
-              <span> | </span>
-              <a
-                href="/"
-                alt="Celsius"
-                className="unactiveTemp"
-                onClick={showCelsius}
-              >
-                C
-              </a>
-            </span>
-          </div>
-          <Humidity data={weatherData} />
+          {form}
+          <WeatherForecast unit={unit} data={weatherData} />
+          <CodeBy />
         </div>
-        {form}
-        <WeatherForecast unit={unit} data={weatherData} />
-        <CodeBy />
       </div>
     );
   }
   if (weatherData.ready && unit === "metric") {
     return (
       <div className="Weather">
-        <Description data={weatherData} />
-        <div className="row row2 mt-2">
-          <div className="col-3 group1">
-            <div>
-              <span className="windEmoji">🌬</span>
-              <span className="windSpeed"> {weatherData.wind} </span>
+        <div className="container">
+          <Description data={weatherData} />
+          <div className="row row2 mt-2">
+            <div className="col-3 group1">
+              <div>
+                <span className="windEmoji">🌬</span>
+                <span className="windSpeed"> {weatherData.wind} </span>
+              </div>
+              <div>
+                <span className="windUnit">km/h</span>
+              </div>
             </div>
-            <div>
-              <span className="windUnit">km/h</span>
+            <div className="col-6 group2">
+              <span className="temperature">{weatherData.temp}</span>
+              <span className="tempUnits">
+                <span className="activeTemp">˚C</span>
+                <span> | </span>
+                <a
+                  href="/"
+                  alt="Fahrenheit"
+                  className="unactiveTemp"
+                  onClick={showFahrenheit}
+                >
+                  F
+                </a>
+              </span>
             </div>
+            <Humidity data={weatherData} />
           </div>
-          <div className="col-6 group2">
-            <span className="temperature">{weatherData.temp}</span>
-            <span className="tempUnits">
-              <span className="activeTemp">˚C</span>
-              <span> | </span>
-              <a
-                href="/"
-                alt="Fahrenheit"
-                className="unactiveTemp"
-                onClick={showFahrenheit}
-              >
-                F
-              </a>
-            </span>
-          </div>
-          <Humidity data={weatherData} />
+          {form}
+          <WeatherForecast data={weatherData} />
+          <CodeBy />
         </div>
-        {form}
-        <WeatherForecast data={weatherData} />
-        <CodeBy />
       </div>
     );
   } else {
