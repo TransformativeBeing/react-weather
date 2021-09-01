@@ -62,7 +62,7 @@ export default function Weather({ place }) {
     <form onSubmit={handleSubmit}>
       <div className="row row3">
         <SunTimes data={weatherData} timeZone={weatherData.timeZone} />
-        <div className="col-4 set2">
+        <div className="col-5 set2">
           <div className="city">
             <span>
               {weatherData.city}, {weatherData.country}
@@ -82,7 +82,7 @@ export default function Weather({ place }) {
             timeZone={weatherData.timeZone}
           />
         </div>
-        <div className="col-4 set3">
+        <div className="col-3 set3">
           <div>
             <button type="submit" className="searchButton">
               Search
@@ -98,7 +98,7 @@ export default function Weather({ place }) {
       <div className="Weather">
         <div className="container">
           <Description data={weatherData} />
-          <div className="row row2 mt-2">
+          <div className="row row2 mt-3">
             <div className="Wind col-3 group1">
               <div>
                 <span className="windEmoji">🌬</span>
@@ -137,7 +137,7 @@ export default function Weather({ place }) {
       <div className="Weather">
         <div className="container">
           <Description data={weatherData} />
-          <div className="row row2 mt-2">
+          <div className="row row2 mt-3">
             <div className="col-3 group1">
               <div>
                 <span className="windEmoji">🌬</span>
