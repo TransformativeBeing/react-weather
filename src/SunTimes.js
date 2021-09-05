@@ -1,5 +1,6 @@
 import React from "react";
 import sunEmoji from "./sunEmoji.png";
+import "./SunTimes.css"
 
 export default function SunTimes({ data, timeZone }) {
   function setSunTime(newDate) {

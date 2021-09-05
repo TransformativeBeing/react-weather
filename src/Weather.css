@@ -69,47 +69,12 @@
   text-decoration: underline;
 }
 
-.Weather .group3 {
-  position: relative;
-  top: 10px;
-}
-
-.Weather .humidity {
-  color: var(--primary-color);
-  font-size: 20px;
-}
-
-.Weather .humidityLabel {
-  color: var(--secondary-color);
-  font-size: 17px;
-}
-
 .Weather .row3 {
   text-align: center;
   padding: 1px 0 0;
   text-shadow: var(--shadow);
 }
 
-.Weather .set1 {
-  width: 50%;
-}
-
-.Weather .sunEmoji {
-  width: 25px;
-  height: auto;
-  position: relative;
-  top: 5px;
-}
-
-.Weather .sunLabels {
-  color: var(--secondary-color);
-}
-
-.Weather .sunTimes {
-  color: var(--primary-color);
-  position: relative;
-  left: 2px;
-}
 .set2 {
   position: relative;
   right: 9px;
@@ -164,29 +129,6 @@
 .Weather button {
   background: transparent;
   border: transparent;
-}
-
-.Weather .row5 {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  max-width: 510px;
-  opacity: 0.85;
-  font-family: monospace;
-  text-shadow: var(--shadow);
-}
-
-.codedBy {
-  color: var(--secondary-color);
-}
-.Weather .openSourceLink {
-  text-decoration: none;
-  color: var(--primary-color);
-  transition: all 200ms ease-in-out;
-}
-
-.Weather .openSourceLink:hover {
-  text-decoration: underline;
 }
 
 .Weather .Loading {

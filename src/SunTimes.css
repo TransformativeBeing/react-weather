@@ -1,0 +1,20 @@
+.Weather .set1 {
+  width: 50%;
+}
+
+.Weather .sunEmoji {
+  width: 25px;
+  height: auto;
+  position: relative;
+  top: 5px;
+}
+
+.Weather .sunLabels {
+  color: var(--secondary-color);
+}
+
+.Weather .sunTimes {
+  color: var(--primary-color);
+  position: relative;
+  left: 2px;
+}

@@ -1,0 +1,14 @@
+.Weather .group3 {
+  position: relative;
+  top: 10px;
+}
+
+.Weather .humidity {
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.Weather .humidityLabel {
+  color: var(--secondary-color);
+  font-size: 17px;
+}

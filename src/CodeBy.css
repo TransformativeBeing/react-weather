@@ -1,0 +1,32 @@
+.Weather .row5 {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 510px;
+  opacity: 0.85;
+  font-family: monospace;
+  text-shadow: var(--shadow);
+}
+
+.CodeBy .codedBy {
+  color: var(--secondary-color);
+}
+.CodeBy .openSourceLink {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all 200ms ease-in-out;
+}
+
+.CodeBy .openSourceLink:hover {
+  text-decoration: underline;
+}
+
+.CodeBy .hostedBy {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all 200ms ease-in-out;
+}
+
+.CodeBy .hostedBy:hover {
+  text-decoration: underline;
+}

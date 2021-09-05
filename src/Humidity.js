@@ -1,4 +1,5 @@
 import React from "react";
+import "./Humidity.css"
 
 export default function Humidity({data}) {
     return (
