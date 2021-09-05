@@ -26,6 +26,7 @@ export default function Weather({ place }) {
     event.preventDefault();
     setUnit("imperial");
   }
+  // OpenWeather API documentation: https://openweathermap.org/api
   function search() {
     let apiKey = `acde47caf66ba769e649bfd77d6c16aa`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
