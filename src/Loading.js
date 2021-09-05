@@ -1,5 +1,6 @@
 import React from "react";
 import { SpinnerRoundFilled } from "spinners-react";
+// npm spinners documentation: https://www.npmjs.com/package/spinners-react
 
 export default function Loading({ size, color }) {
   return (
