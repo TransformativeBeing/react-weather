@@ -21,6 +21,16 @@
   text-decoration: underline;
 }
 
+.CodeBy .profile {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all 200ms ease-in-out;
+}
+
+.CodeBy .profile:hover {
+  text-decoration: underline;
+}
+
 .CodeBy .hostedBy {
   text-decoration: none;
   color: var(--primary-color);

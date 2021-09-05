@@ -15,7 +15,16 @@ export default function CodeBy() {
           >
             Open-Source Code
           </a>
-          <span> by Jessica Nolte</span>
+          <span> by </span>
+          <a
+            className="profile"
+            href="https://jessicanolte.netlify.app/"
+            title="Jessica Nolte's Profile Website"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Jessica Nolte
+          </a>
         </div>
         <div>
           Hosted on{" "}
