@@ -4,14 +4,14 @@
 
 .App .Weather {
   display: block;
-  margin: 90px auto 100px;
+  margin: 90px auto;
   border: 1px solid var(--primary-color);
-  border-radius: 50%;
+  border-radius: 100%;
   width: 500px;
   height: 500px;
   line-height: 1.5;
   box-shadow: var(--shadow);
-  background-image: radial-gradient(
+  background: radial-gradient(
     circle at 10% 20%,
     #d1c8fa 5%,
     #b2a6e9 55%,
