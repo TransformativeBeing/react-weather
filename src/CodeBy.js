@@ -16,17 +16,17 @@ export default function CodeBy() {
             Open-Source Code
           </a>
           <span> by </span>
-          <a
+          {/* <a
             className="profile"
             href="https://jessicanolte.netlify.app/"
             title="Jessica Nolte's Profile Website"
             target="_blank"
             rel="noreferrer"
-          >
-            Jessica Nolte
-          </a>
+          > */}
+          Jessica N.
+          {/* </a> */}
         </div>
-        <div>
+        {/* <div>
           Hosted on{" "}
           <a
             className="hostedBy"
@@ -37,7 +37,7 @@ export default function CodeBy() {
           >
             Netlify
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
